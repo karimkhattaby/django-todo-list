@@ -1,0 +1,43 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<!-- Categories -->
+<h2>Categories</h2>
+
+<button type="submit"><a href="{% url 'tasks:create_category' %}">Add Category</a></button>
+
+<!-- Completed -->
+<div>
+    <br>
+    <a href="{% url 'tasks:get_completed' %}">Completed Tasks</a>
+</div>
+
+<!-- User Defined Categories -->
+{% for category in categories %}
+    <div>
+        <br>
+        <a href="{% url 'tasks:get_category' category.id %}">{{category}}</a>
+    </div>
+{% endfor %}
+
+<!-- To Do -->
+
+<h2>To Do</h2>
+
+<button type="submit"><a href="{% url 'tasks:create_task' %}">Add Task</a></button>
+
+{% for task in tasks %}
+    <div>
+        <h4>{{task}}</h4>
+        <a href="{% url 'tasks:update_task' task.id %}">Edit Task</a>
+        <a href="{% url 'tasks:delete_task' task.id %}">Delete Task</a>
+        <p>{{task.description}} <br>
+        {{task.due_date}} <br>
+        {{task.priority}}</p>
+        <form action="{% url 'tasks:mark_task_complete' task.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Mark As Complete</button>
+        </form>
+    </div>
+{% endfor %}
+{% endblock %}

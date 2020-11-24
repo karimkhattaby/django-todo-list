@@ -1,0 +1,25 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<h2>{{category.name}}</h2>
+
+<button type="submit"><a href="{% url 'tasks:update_category' category.id %}">Edit Category</a></button>
+<button type="submit"><a href="{% url 'tasks:delete_category' category.id %}">Delete Category</a></button>
+
+<h2>To Do</h2>
+
+{% for task in tasks %}
+    <div>
+        <h4>{{task}}</h4>
+        <p>{{task.description}} <br>
+        {{task.due_date}} <br>
+        {{task.priority}}</p>
+        <form action="{% url 'tasks:mark_task_complete' task.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Mark As Complete</button>
+        </form>
+        <a href="{% url 'tasks:update_task' task.id %}">Edit Task</a>
+        <a href="{% url 'tasks:delete_task' task.id %}">Delete Task</a>
+    </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h1>Welcome to your To-Do List</h1>
+    <p>To get started, sign up or login using one of the links below: <br>
+        <a href="{% url 'accounts:login' %}">Login</a> <br>
+        <a href="{% url 'accounts:signup' %}">Sign Up</a>
+    </p>
+{% endblock %}

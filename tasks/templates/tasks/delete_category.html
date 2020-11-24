@@ -1,0 +1,16 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<h3>Deleting {{category}}</h3>
+
+<p>Are you sure you want to delete {{category}} ?<br>
+   All tasks within this category will become 'Uncategorized'
+</p>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <button type="submit">Confirm & Delete</button>
+</form>
+<a href="{% url 'tasks:get_category' category.id %}">Cancel</a>
+
+{% endblock %}

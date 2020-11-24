@@ -1,0 +1,14 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<h2>Completed Tasks</h2>
+
+{% for task in tasks %}
+    <div>
+        <h4>{{task}}</h4>
+        <p>{{task.description}} <br>
+        {{task.due_date}} <br>
+        {{task.priority}}</p>
+    </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<h3>Update a Category</h3>
+
+<form action="{% url 'tasks:update_category' category.id %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Update Category</button>
+</form>
+
+{% endblock %}
