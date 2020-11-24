@@ -26,7 +26,7 @@ Deployment: Docker & Heroku
 Ensure the app is running by making a GET request to http://127.0.0.1:8000/ (you can change the port by providing an environment variable)
 
 ## Hosted Version
-The latest version is deployed and hosted on Heroku. Check it out by clicking [HERE](https://smart-brain-karim.herokuapp.com/).
+The latest version is deployed using Docker and hosted on Heroku. Check it out by clicking [HERE](https://powerful-reef-25565.herokuapp.com/).
 
 ## Usage
 1. Sign up.
